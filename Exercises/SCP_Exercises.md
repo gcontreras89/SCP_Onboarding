@@ -53,7 +53,7 @@ In this first exercise, we will look at creating a trial account in SAP Cloud Pl
 1.  If you do *not* already have an account in SCP, please visit the SAP Cloud Platform portal <https://cloudplatform.sap.com/try.html> and click on the "**Sign up for your free account**" link
 2.  Fill in the information on the form, check the box that you have read the Terms & Conditions, then click **Submit** 
 3. Once submitted, you will receive an email to the address you provided in the registration. Click the **Click to Activate your Account** button 
-![](images/picture1.png)
+![](/images/picture1.png)
 
 OR
 
