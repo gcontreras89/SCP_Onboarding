@@ -12,4 +12,4 @@ These are the 6 technical hands-on workshop exercises for the SAP Cloud Platform
 - [Exercise\_03 - Creating the Data Model](https://github.com/saphanaacademy/SCP_Onboarding/blob/master/Exercises/SCP_Exercises.md#linkcode3)
 - [Exercise\_04 - Working with OData](https://github.com/saphanaacademy/SCP_Onboarding/blob/master/Exercises/SCP_Exercises.md#linkcode4)
 - [Exercise\_05 - Creating a UI](https://github.com/saphanaacademy/SCP_Onboarding/blob/master/Exercises/SCP_Exercises.md#linkcode5)
-- [Exercise\_06 - Deploying the Application]((https://github.com/saphanaacademy/SCP_Onboarding/blob/master/Exercises/SCP_Exercises.md#linkcode6)
+- [Exercise\_06 - Deploying the Application](https://github.com/saphanaacademy/SCP_Onboarding/blob/master/Exercises/SCP_Exercises.md#linkcode6)
