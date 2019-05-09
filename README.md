@@ -7,7 +7,7 @@ These are the 6 technical hands-on workshop exercises for the SAP Cloud Platform
 
 ### SAP Cloud Platform - Getting Started
 
-- [Exercise\_01 - Creating a Trial Account](https://github.com/saphanaacademy/SCP-Onboarding/blob/master/SCP.md#linkcode1)
+- [Exercise\_01 - Creating a Trial Account](Exercises/SCP_Onboarding.md#linkcode1)
 - [Exercise\_02 - Creating a Project](https://github.com/saphanaacademy/SCP-Onboarding/blob/master/SCP.md#linkcode2)
 - [Exercise\_03 - Creating the Data Model](https://github.com/saphanaacademy/SCP-Onboarding/blob/master/SCP.md#linkcode3)
 - [Exercise\_04 - Working with OData](https://github.com/saphanaacademy/SCP-Onboarding/blob/master/SCP.md#linkcode4)
