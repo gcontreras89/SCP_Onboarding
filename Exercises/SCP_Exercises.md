@@ -86,21 +86,27 @@ Next, you should see your SCP Trial Account Cockpit
 1. Let's select the Cloud Foundry environment by clicking to open that tile. The first thing we need to do is select the **Region** we wish to use. Let's select the **Europe (Frankfurt)** for **AWS** because it has most of the services we will be needing for this course.
 
 ![](images/Picture6.png)
+
 2. The system will now create a subaccount for you called "trial" and may also create an Organization and Space. If not, we can do that manually.
 
 ![](images/Picture7.png)
+
 3. On the Subaccounts screen, click on the newly created **trial** subaccount, and we can click the button to **Enable Cloud Foundry**
 
 ![](images/Picture8.png)
+
 4. For our Organization name, we highly recommend that you use the same name as your subdomain, which is not the default.  Let's simplify it to be our P number followed by the word trial. Click **Create**.
 
 ![](images/Picture9.png)
+
 5. Now we see our Cloud Foundry Organization is created, with the same name as the subdomain of the subaccount.
 
 ![](images/Picture10.png) 
+
 6. The next thing we'll want to do is set up our Space within that CF Organization. To do that, we click on **Spaces** on the left hand menu, then click the button **New Space**
 
 ![](images/Picture11.png) 
+
 7. We will need to give it a name, let's call it **dev** and accept the default roles of Space Manager and Space Developer, then click **Save** 
 
  ![](images/Picture12.png) 
@@ -109,12 +115,15 @@ Next, you should see your SCP Trial Account Cockpit
 1. When the space is first created, we see that there is no quota assigned to it, and if we **open that space** by clicking on the tile, we can look at the Services available. Choose the **Services** link in the left hand menu, and select the **Service Marketplace** option to see the list of services available. There are not many by default.
 
 ![](images/Picture13.png) 
+
 2. To add more services, we need to go back to our Cloud Foundry subaccount. The easiest way to do this is to use the breadcrumb trail at the top, and click **Home**
 
 ![](images/Picture14.png)
+
 3. Here we see our list of subaccounts. If we click on the **Entitlements** link on the left hand menu, we are presented with the various services that are avaialble, and we can click the **Edit** button to modify the assignment for any given service.
 
 ![](images/Picture15.png)
+
 4. Let's use the **+** sign to assign all four units to the **Application Runtime** service.
 
 ![](images/Picture16.png) 
@@ -126,6 +135,7 @@ Next, you should see your SCP Trial Account Cockpit
 7. To see those services were added to our Space, you can go back to **SubAccounts > Spaces** to select our **dev** space, then use menu to see **Services > Service Marketplace** and see any added services, such as *ml-foundation-trial-beta* are now in the list.1. If we click to open the details for SAP Leonardo Machine Learning (ml-foundation-trial-beta) service tile, 
 
 ![](images/Picture18.png)  
+
 2. We can now create an instance of that service by clicking the **Instances** option on the left hand menu.
 3. Click **New Instance** button, click Next because we already chose the service Plan, click Next because we don't have any parameters to set, click Next because we don't have an application to assign, and finally give your instance a name, such as **ml** for machine learning, then click Finish.  We will cover this more in the Machine Learning topic. 
 
@@ -139,9 +149,11 @@ For this exercise, we will continue working in our SCP Trial account established
 1. To do this, we need to go back to our **Home** and this time choose to **open the Neo environment** tile.
 
 ![](images/Picture3.png)
+
 2. Next we can go to our Services from the left hand menu, and scroll down to find the **SAP Web IDE Full-Stack** service tile, and click to open.
 
 ![](images/Picture5.png)
+
 3.  Once the service details open, scroll down to find the **Go to Service** link under the "Take Action" section. Click to launch the service.
 
 ##### Step 2 -- Configure for Cloud Foundry
@@ -149,16 +161,20 @@ Once we open the Web IDE tool, we will need to do a small amount of configuratio
 1. First, let's **open the preferences section** by clicking the gear icon on the left hand menu, then choose the **Cloud Foundry** option under Workspace Preferences.
 
 ![](images/Picture19.png)
+
 2. Next we will need to give it an API Endpoint to our Cloud Foundry trial account. If you chose Europe (Frankfurt), then you can select the
 *https://api.cf.eu10.hana.ondemand.com* option.
 
-![](images/Picture20.png). 
+![](images/Picture20.png) 
+
 NOTE: to double check you are using the corrent endpoint, you can go to your SCP Cockpit, open your subaccount for Trial in the Cloud Foundry environment, and see the API Endpoint listed for the Organization you created earlier.
 
 ![](images/Picture21.png)
+
 3. You will need to Log On to the CF environment using the SAP Cloud Platform credentials (email/pw used to set up Trial Account).
 
 ![](images/Picture22.png)
+
 4. You can then see the Organization and Space you set up earlier should be auto-filled. Click **Save**
 
 ![](images/Picture23.png)
@@ -173,12 +189,15 @@ Next, we want to enable some additional tools for working with applications in t
 2. Using the filter, you can search for "Tools" and then scroll down to find the **SAP Cloud Platform Business Application Develeopment Tools** tile. Make sure it is turned **ON**.
 
 ![](images/Picture24.png)
+
 3. Using the filter again, let's search for 'hana' to the find the **SAP HANA Database Developlment Tools** and click to turn it **ON** and click to **SAVE** that change. *NOTE: we will actually be using the Database Explorer tool, but it comes with the Database Development tool set, so we will just turn on that one.*
 
 ![](images/Picture25.png)
+
 4. Because we have made changes to our toolset, we will need to Refresh the Web IDE browser. Click **Refresh**.
 
 ![](images/Picture26.png)
+
 5. We now see we have additional items in our menu, including the options for Database Explorer.
 
 ![](images/Picture27.png) 
@@ -189,32 +208,41 @@ For our exercise, we will be creating an application with a HANA data model that
 1. Go to Home in Web IDE, and select the **New Project from Template** tile under *Create Project*.
 
 ![](images/Picture28.png) 
+
 2. Scroll down and select the **SAP Cloud Platform Business Application** tile. 
 
 ![](images/Picture29.png) 
+
 3. *NOTE: If you do not see this tile, go up to the top and make sure that you have Cloud Foundry selected for your environment.*
 
 ![](images/Picture30.png) 
+
 4. After selecting the template, click **Next** and give the project a name. We'll use ***project1*** and click ***Next**
 
 ![](images/Picture31.png) 
+
 5. Next, we will need to confirm our Service model and our Database model. As a default, we will use the JAVA service and the SAP HANA database. We can use the drop down to choose the database version, or as we see later on we can set this in our code. *NOTE: for the trial version, 2.0.0.0 supports this exercise at this time.*  
 6. We will also include the sample files in our project. Let's change the JAVA package to match our project, calling it ***project1***. Click **Next** and then **Finish** to create the project.
 
 ![](images/Picture32.png) 
+
 7. After a time, we will see that it has created a whole framework of files for us, including the subfolders for the JAVA service (srv) where we will create our OData service, and for the SAP HANA database (db) where we will do our data modeling.
 
 ![](images/Picture33.png) 
+
 8.  In fact, it has created a Multitarget Application as we see the mta.yaml file, which contains our modules for the Java service and our DB.
 
 ![](images/Picture34.png) 
+
 9. One more thing we need to check is that we are using the correct version of the SAP HANA database. To do this, we need to take a look at some **Hidden files**, by **clicking the Eye icon** from the tool bar
 
 ![](images/Picture35.png)
+
 10. We want to open the **.hdiconfig** file in the *>db>src>* folder.
 11. To check our database version, we can edit the .hdiconfig to show the "plugin version" to be 2.0.0.0
 
 ![](images/Picture36.png)
+
 12. And we can click to **Save**, and then close the .hdiconfig file, and hide the hidden files again.
 
 ![](images/Picture37.png)
@@ -232,18 +260,23 @@ When we created our template in the earlier exercise, we accepted the sample set
 2. On Row 1, we will want to change the namespace from the default to our *project1* and update the entity to be *Sales* with new parameters as key ID as Integer, *region* as String, and *amount* as Integer.
 
 ![](images/Picture38.png). We won't save yet.
+
 3. In the service folder, open the **cat-service.cds** file, and update the namespace to *project1* and change the service to use *entity Sales as projection on project1.Sales;*
 
 ![](images/Picture39.png)
+
 4.  Now we can save BOTH file updates by clicking the **Save All** icon.   
 
 ![](images/Picture40.png) 
+
 This tells Web IDE fullstack to create database specific and service specfic code for us. You should see the *"Build of 'project1' completed"* message in the upper right corner if all went well.  
 
 ![](images/Picture41.png)
+
 5. For instance, we see a new folder under our db>src folder called "gen" that contains some elements. We see our project1.sales table with our 3 items for ID, region and amount in it.
 
 ![](images/Picture42.png)
+
 And we can see that there are now items populated in our srv>resources>edmx folder as well.
 
 ![](images/Picture43.png)
@@ -254,19 +287,24 @@ Now that we have generated the code we need, now we can build our model.
 1. Right-Click on the ***db*** folder, choose **Build** and then **Build** again.
 
 ![](images/Picture44.png)
+
 2. After a few seconds, you should see that the Build completed successfully.
 3. If we go back to our Cockpit, and look at our **Service Instances**, we see there is a new hdi container that has been set up for our *project1*.
 
 ![](images/Picture45.png) 
+
 4. To work with this new database, we can use the Database Explorer tool from the left hand menu in Web IDE.  
 
 ![](images/Picture46.png)
+
 5. We will be prompted to add the database, click **Yes**, then **select** the new database for *project1* and click **OK**
 
 ![](images/Picture47.png)
+
 6. Now we see that it has opened our database in explorer and if we scroll down we find the 'project1.sales' Table we created earlier, and if we right-click on that item and choose **Open Data** we see the three items of ID, Region and Amount. 
 
 ![](images/Picture48.png)
+
 7. We can actually manually add some sample data here by clicking the **+** sign in the menu at the top of the table  
 
 ![](images/Picture49.png) and entering values in the fields, then clicking the **Save** icon. Go ahead and add a few rows of data, as seen here:
@@ -287,6 +325,7 @@ The setup required for the OData service has already been provided to us in our 
 2. Once it finishes running, we can find the URL to that application by opening up the Run Console window. 
 
 ![](images/Picture52.png)
+
 3. If we open that URL in a new window, it will show our application endpoint. If we click on that link to open it, we see the actual Odata service.
 
 ![](images/Picture53.png)
@@ -334,15 +373,19 @@ We are going to create our UI through the Web IDE tool, but again we won't have 
 1. To start, we want to create a new html5 module for our project by right-clicking on the *project1* module and choosing **New>HTML5 Module** from the menu.
 
 ![](images/Picture57.png)
+
 2. Next we are shown a collection of pre-built templates to choose for our project. We will **Select CRUD Master-Detail Module** and click **Next**
 
 ![](images/Picture58.png)
+
 3. We can call our module ***ui*** and give it the title ***Sales Data*** and connect it to our namespace ***project1** then click **Next**
 
 ![](images/Picture59.png)
+
 4. Now we should see the services available in our current projects, and we can select the catalog service for our java service. **Select CatalogService** and click **Next**
 
 ![](images/Picture60.png)
+
 *Note: a current bug may show the catalog service multiple times. Just select the top item in the list*  
 5. For the customization, we need to add some binding. If you click to enlarge the picture on the right, you can see the potential results with the various components listed. This can help you to choose the appropriate fields to select for the design. We will choose the following to start:
 
@@ -364,13 +407,16 @@ Object Numeric Value | amount
 9. We will need to designate where we want to run our application, so we will choose the **flp-sandbox.html** for the Fiori Launchpad Sandbox.
 
 ![](images/Picture62.png)
+
 10. You will need to **Log On** using your SAP Cloud Platform credentials
 
 ![](images/Picture63.png)
+
 11. You may receive a message that you need to disable your Pop-Up blocker in your browser to see the pop-up windows for the Fiori Launchpad. Go ahead and Allow pop-ups.
 12. Next you should see the Fiori Launchpad with a tile indicating our Sales Data application.
 
 ![](images/Picture64.png)
+
 13. We can click to **open the tile** and we see our Master-Detail layout (from the template we chose) populated by the data (we entered in database explorer).
 
 ![](images/Picture65.png)
@@ -399,9 +445,11 @@ To modify the look of this shell application we created from template, we can go
 2. If we wanted to modify the functionality, we would open the ***/controller*** folder and modify the JavaScript code.
 
 ![](images/Picture67.png)
+
 3. If we want to modify the layout of our views, we can do that as well. For that, we can select our Master.view.xml view again and right-click to **Open in Layout Editor** from context menu.
 
 ![](images/Picture69.png)
+
 4. Here we have a Drag and Drop editor for our Master page of our UI, with all the various component controls available.
 
 ![](images/Picture70.png)
@@ -438,17 +486,21 @@ To deploy the project, we want to build all the various components with all of o
 2. Once complete, you should see the "Build of project1 was successful" message, and an archive of your project will be created.
 
 ![](images/Picture73.png)
+
 3. In fact, we now see a */mta_archives* folder in our project, and it contains the archive of our version 0.0.1 of our project.
 
 ![](images/Picture74.png)
+
 *Note: this structure differs slightly from than that shown in the video*
 4. We have a couple of options to deploy this file.  We could download the .mtar file and deploy it into a Cloud Foundry space using the Command Line tool, or we can use Web IDE to deploy it directly from here.
 5. Right-click on the .mtar file and choose **Deploy > Deploy to SAP Cloud Platform**
 
 ![](images/Picture75.png)
+
 6. We will need to provide our Cloud Foundry API Endpoint, our Organization and Space. For our simple example, we only have one CF org and space so once we enter the API endpoint, we will accept the default values. However, if you had more accounts available, you could be deploying from a NEO environment of Web IDE to any Cloud Foundry org and space in any supported region.
 
 ![](images/Picture76.png)
+
 Note: Remember the Cloud Foundry API Endpoint can be found in the SCP Cockpit on the Cloud Foundry sub-account details.
 7. After a few minutes, you should receive the "deployed successfully" messages to indicate it has created the db service, the srv java service and the ui application.
 
@@ -460,6 +512,7 @@ Now that we have successfully deployed the application, let's go back to the Coc
 1. If we open up our *'dev'* space,we can see under **Applications**, we see we now have applications for our *'project1-db'*, our *'project1-srv'* and our *'ui'*.
 
 ![](images/Picture78.png)
+
 2. If we look at our **Service Instances**, we should see our new hdi container *'project1-hdi-container'* for the project1, as well as a user authorization *'uaa_project1'* instance.
 3. We can also notice with the *Referencing Applications* column here that all the linking and binding between applications has already been done for us.
 
@@ -471,13 +524,16 @@ Now to run our Application, we can just click on the URL for the UI.
 1. Go back to **Applications** and click on the **ui** application to open the details.
 
 ![](images/Picture80.png)
+
 2. On the Details page, we can **Click the URL** for our application to run it.
 
 ![](images/Picture81.png)
+
 3. We will need to **Log On** with our SCP credentials to get to our Fiori sandbox.
 4. We see our Sales Data tile on the Fiori Launchpad again, but if we open it this time, we see the application but no data.  This is expected since the data we entered earlier was for the hdi container we were using during development. This is a new hdi container we have created during deployment.
 
 ![](images/Picture82.png)
+
 5. Once again, because this is a CRUD application, we could use the **+** sign on the lower left and manually add some data again, and click to **Save**.
 
 ![](images/Picture83.png)
@@ -488,12 +544,15 @@ We could also go directly to the OData service to review our application compone
 1. Go back to the Cockpit and let's look at the service application. We can either open our *'dev'* space and go to **Applications** again and select it, or we can use the shortcut and click on the dropdown arrow *'v'* in the upper right portion of the breadcrumb trail to **Switch to Another Application** and select the **project1-srv** service application.
 
 ![](images/Picture84.png)
+
 2. On the Details page for the service application, we find the URL for this service. 
 
 ![](images/Picture85.png)
+
 4. If we **Click on the URL** we should be able to connect to the Odata service endpoint through our browser.
 
 ![](images/Picture86.png)
+
 5. Then **Click to open the OData service** and if you added data into this new hdi container, we can modify the URL by adding **/Sales/?$format=json** to see our Sales data in json format as we did before.
 
 ![](images/Picture87.png)
