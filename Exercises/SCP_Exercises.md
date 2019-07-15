@@ -6,7 +6,7 @@
 
 
 ## Description
-This course provides an introduction to working with the SAP Cloud Platform. We will begin with an understanding of the structure of accounts within the cloud platform, and walk through creating accounts, subaccounts, organizations and spaces.  Finally, we will create a project to model and build a simple application and UI to be deployed. 
+This course provides an introduction to working with the SAP Cloud Platform. We will begin with an understanding of the structure of accounts within the cloud platform, and walk through creating accounts, subaccounts, organizations and spaces.  Finally, we will create a project to model and build a simple application and UI to be deployed and ultimately uninstalled. We will be using the SAP Cloud Platform Cockpit, SAP Web IDE Full-Stack and the Command Line Interface (CLI).
 
 For more information about SAP Cloud Platform in general, you might visit:
 
@@ -24,6 +24,7 @@ In this exercise, you’ll learn how to...
 * Work with OData
 * Create a UI
 * Deploy a Sample Application
+* Uninstall a Sample Application
 
 
 ## Target group
@@ -43,6 +44,7 @@ The goal of this exercise is to understand the structure of the SAP Cloud Platfo
 4. [Work with OData](#linkcode4)
 5. [Create a Simple UI](#linkcode5)
 6. [Deploy the Application](#linkcode6)
+7. [Uninstall the Application (using the CLI)](#linkcode7)
  
 
 ### <a name="linkcode1"></a> Create an Account in SCP Trial landscape
@@ -190,7 +192,7 @@ Next, we want to enable some additional tools for working with applications in t
 
 ![](images/Picture24.png)
 
-3. Using the filter again, let's search for 'hana' to the find the **SAP HANA Database Developlment Tools** and click to turn it **ON** and click to **SAVE** that change. *NOTE: we will actually be using the Database Explorer tool, but it comes with the Database Development tool set, so we will just turn on that one.*
+3. Using the filter again, let's search for 'hana' to the find the **SAP HANA Database Development Tools** and click to turn it **ON** and click to **SAVE** that change. *NOTE: we will actually be using the Database Explorer tool, but it comes with the Database Development tool set, so we will just turn on that one.*
 
 ![](images/Picture25.png)
 
@@ -222,24 +224,24 @@ For our exercise, we will be creating an application with a HANA data model that
 ![](images/Picture31.png) 
 
 5. Next, we will need to confirm our Service model and our Database model. As a default, we will use the JAVA service and the SAP HANA database. We can use the drop down to choose the database version, or as we see later on we can set this in our code. *NOTE: for the trial version, 2.0.0.0 supports this exercise at this time.*  
-6. We will also include the sample files in our project. Let's change the JAVA package to match our project, calling it ***project1***. Click **Next** and then **Finish** to create the project.
+6. We will also include the sample files in our project. Let's change the JAVA package to match our project, calling it ***project1***. You can leave the OData version at v2. Click **Next** and then **Finish** to create the project.
 
 ![](images/Picture32.png) 
 
-7. After a time, we will see that it has created a whole framework of files for us, including the subfolders for the JAVA service (srv) where we will create our OData service, and for the SAP HANA database (db) where we will do our data modeling.
+7. After a time, we will see that it has created a whole framework of files for us, including the subfolders for the JAVA backend service (srv) where we will create our OData service, and for the SAP HANA database (db) where we will do our data modeling.
 
 ![](images/Picture33.png) 
 
-8.  In fact, it has created a Multitarget Application as we see the mta.yaml file, which contains our modules for the Java service and our DB.
+8.  In fact, it has created a Multitarget Application as we see the mta.yaml file, which contains our modules for the Java backend service and our DB.
 
 ![](images/Picture34.png) 
 
-9. One more thing we need to check is that we are using the correct version of the SAP HANA database. To do this, we need to take a look at some **Hidden files**, by **clicking the Eye icon** from the tool bar
+9. Should you ever want to check that you're are using the correct version of the SAP HANA database, we'd need to take a look at some **Hidden files**, by **clicking the Eye icon** from the tool bar
 
 ![](images/Picture35.png)
 
 10. We want to open the **.hdiconfig** file in the *>db>src>* folder.
-11. To check our database version, we can edit the .hdiconfig to show the "plugin version" to be 2.0.0.0
+11. To check our database version, we can edit the .hdiconfig to show the "plugin version" to be 2.0.0.0 in trial.
 
 ![](images/Picture36.png)
 
@@ -247,7 +249,7 @@ For our exercise, we will be creating an application with a HANA data model that
 
 ![](images/Picture37.png)
 
-Now we have created our project and the template has generated some cds files for us -- one for the db module, and one for the srv model. That allows us to do our entity modeling at the core service level using this sample code. That way, Web IDE Fullstack will actually generate the database and Odata service artifacts to make this process work, leaving us to concentrate on the entity level and not get caught up in the details of the artifacts themselves.
+Now we have created our project and the template has generated some cds files for us -- one for the db module, and one for the srv model. That allows us to do our entity modeling at the core service level using this sample code. That way, Web IDE Fullstack will actually generate the database and OData service artifacts to make this process work, leaving us to concentrate on the entity level and not get caught up in the details of the artifacts themselves.
 
 
 ### <a name="linkcode3"></a> Data Modeling
@@ -269,7 +271,7 @@ When we created our template in the earlier exercise, we accepted the sample set
 
 ![](images/Picture40.png) 
 
-This tells Web IDE fullstack to create database specific and service specfic code for us. You should see the *"Build of 'project1' completed"* message in the upper right corner if all went well.  
+This tells Web IDE fullstack to create database specific and service specfic code for us. You should see the *"Build of 'project1' completed"* message in the upper right corner if all went well. NB: If you see an error message try adding a whitespace in one of the edited files and saving again. This time the build should complete OK. 
 
 ![](images/Picture41.png)
 
@@ -326,7 +328,7 @@ The setup required for the OData service has already been provided to us in our 
 
 ![](images/Picture52.png)
 
-3. If we open that URL in a new window, it will show our application endpoint. If we click on that link to open it, we see the actual Odata service.
+3. If we open that URL in a new window, it will show our application endpoint. If we click on that link to open it, we see the actual OData service.
 
 ![](images/Picture53.png)
 
@@ -549,13 +551,110 @@ We could also go directly to the OData service to review our application compone
 
 ![](images/Picture85.png)
 
-4. If we **Click on the URL** we should be able to connect to the Odata service endpoint through our browser.
+4. If we **Click on the URL** we should be able to connect to the OData service endpoint through our browser.
 
 ![](images/Picture86.png)
 
 5. Then **Click to open the OData service** and if you added data into this new hdi container, we can modify the URL by adding **/Sales/?$format=json** to see our Sales data in json format as we did before.
 
 ![](images/Picture87.png)
+
+
+### <a name="linkcode7"></a> Uninstall our Application
+
+As the last step of this introduction to developing in SAP Cloud Platform, we will learn how to uninstall our application.
+
+Each of the apps that we have deployed to our Cloud Foundry space consume ***application Runtime*** memory and there's a limit in the trial of 4GB. In order that you can use the same trial account for subsequent hands-on exercises it would be prudent to know how to uninstall applications. This will also allow us to get familiar with the Command Line Interface (CLI) tool.
+
+##### Step 1 - Review quota consumed
+
+**Display** the space view for your subaccount - you are likely already consuming 3.25GB of your 4GB ***application runtime*** allowance:
+
+![](images/Picture88.png)
+
+Let's uninstall our deployed applications to free up ***application runtime*** for subseqent exercises.
+
+There are two types of deployment we've been doing:
+
+1. Implicitly by Web IDE when we clicked to ***run*** a module of our project
+2. When we explicitly *deployed* our entire project to the Cloud Foundry space using the *Deploy to Cloud Foundry* option in Web IDE
+
+We'll remove the implicit application deployments first.
+
+##### Step 2 - Uninstall implicitly deployed applications and services
+
+In Web IDE, go to the ***Run*** view for your Java Application *srv* module and press the red button. This will stop then remove the application.
+
+![](images/Picture89.png)
+ 
+Next go to the ***Resources*** view and review the items in the list. The HDI container used during development (it's both a service and an application) is shown. Before we actually delete it here, go to the ***Database Explorer*** and use the ***Remove Database*** option from the right-mouse button to remove it from this list. This will avoid ***Database Explorer*** showing renegade HDI containers once they've been deleted.
+
+![](images/Picture90.png)
+
+Return to the ***Resources*** view and press the **trash** icon. This will actually delete the HDI container itself.
+
+![](images/Picture91.png)
+
+##### Step 3 - Uninstall explicitly deployed applications and services
+
+It's not yet possible to undeploy an entire multi-target application project in Web IDE without removing each application and service individually. However it is possible using the Cloud Foundry *Command Line Interface (CLI)* so let's use that. In any case it's a great reason to get started with the CLI.
+
+To download the CLI go to <https://tools.hana.ondemand.com> and select the ***Cloud*** tab.
+
+![](images/Picture92.png)
+
+The go to the downloads section and click on the relevant installer for your desktop client.
+
+![](images/Picture93.png)
+
+Depending on your desktop client installation may differ but for Windows download the zip, extract, then run *cf_installer.exe*. You can find full installation instructions on the downloads page.
+
+![](images/Picture94.png)
+
+Open a *Command Prompt* or *Terminal* window on your desktop client and enter the ***cf*** command. You should see lots of command options displayed.
+
+![](images/Picture95.png)
+
+Enter the ***cf install-plugins multiapps*** command and confirm with *Y*. This installs the multi-target applications plugin that SAP has contributed to the Cloud Foundry community.
+
+![](images/Picture96.png)
+
+Issue the command ***cf plugins*** and you should see a number of additional *cf* command options including *deploy*, *undeploy* and *mtas*.
+
+![](images/Picture97.png)
+
+Issue the ***cf api*** command to see whether you're targeting the correct API endpoint. Most likely this will not be set and you'll need to re-issue the ***cf api *** command along with with the endpoint URL of your Cloud Foundry subaccount. Something like this ***cf api https://api.cf.eu10.hana.ondemand.com***
+
+You can find your URL endpoint on the main page of your Cloud Foundry subaccount in the Cockpit.
+
+![](images/Picture98.png)
+
+Next issue the ***cf login*** or simply ***cf l*** command to login and enter your trial user email and password.
+
+Verify that you're *targeting* the correct space using the ***cf target*** or ***cf t*** command. You can change space if necessary via the ***cf spaces*** command to list your spaces then the ***cf target -s SPACE_NAME*** command to target the space where you deployed *project1* to earlier in this exercise.
+
+![](images/Picture99.png)
+
+We can see which multi-target applications have been deployed to the targeted space with ***cf mtas***
+
+![](images/Picture100.png)
+
+Now we're ready to undeploy our *project1* application. Issue the ***cf undeploy project1 --delete-services*** command to delete the entire application in one go including all services that were created during the deployment process!
+
+![](images/Picture101.png)
+
+If you go back to the Cockpit you should now see that all service instances and applications relating to *project1* have been removed.
+
+![](images/Picture102.png)
+
+There's still one application left - it's the Web IDE ***hdi space deployer*** which is configured automatically by Web IDE. You can delete this app via the Cockpit if you're done with Web IDE. Don't worry it will be created automatically by Web IDE whenever needed in the future to build a project module or deploy a multi-target application.
+
+![](images/Picture103.png)
+
+Now you should see a lot less ***application runtime*** being used by your space!
+
+![](images/Picture104.png)
+
 
 Congratulations! You have completed this Introduction to Developing Applications in SAP Cloud Platform.
   
@@ -569,3 +668,4 @@ In this series, we looked at developing an application using the Web IDE fullsta
 * Created an OData service to connect to our database
 * Created a UI for the application
 * Deployed our application to a Fiori Launchpad sandbox
+* Uninstalled our application via the CLI

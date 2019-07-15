@@ -1,7 +1,7 @@
 # SCP Onboarding
 
 ## Exercises
-These are the 6 technical hands-on workshop exercises for the SAP Cloud Platform Onboarding sessions.
+These are the 7 technical hands-on workshop exercises for the SAP Cloud Platform Onboarding sessions.
 
 # INDEX OF EXERCISES 
 
@@ -13,3 +13,4 @@ These are the 6 technical hands-on workshop exercises for the SAP Cloud Platform
 - [Exercise\_04 - Working with OData](https://github.com/saphanaacademy/SCP_Onboarding/blob/master/Exercises/SCP_Exercises.md#linkcode4)
 - [Exercise\_05 - Creating a UI](https://github.com/saphanaacademy/SCP_Onboarding/blob/master/Exercises/SCP_Exercises.md#linkcode5)
 - [Exercise\_06 - Deploying the Application](https://github.com/saphanaacademy/SCP_Onboarding/blob/master/Exercises/SCP_Exercises.md#linkcode6)
+- [Exercise\_07 - Uninstalling the Application (using the CLI)](https://github.com/saphanaacademy/SCP_Onboarding/blob/master/Exercises/SCP_Exercises.md#linkcode7)
